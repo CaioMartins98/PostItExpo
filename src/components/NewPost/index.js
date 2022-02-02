@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
+import React, { useState } from "react";
+import { ScrollView } from "react-native";
 import {
   ButtonAddField,
   ButtonCancelField,
@@ -18,7 +17,8 @@ import {
   NewPostTitle,
   NewPostTitleContainer,
   TitleLabel,
-} from './styles';
+} from "./styles";
+import * as Font from "expo-font";
 
 const NewPost = ({
   handleChangeTitle,
@@ -26,19 +26,29 @@ const NewPost = ({
   handleSubmit,
   handleCancel,
   errorTitle,
-  errorText
+  errorText,
 }) => {
+
+  const [loaded] = Font.useFonts({
+    "Poppins-SemiBold": require("../../assets/fonts/Poppins-SemiBold.ttf"),
+    "Poppins-Regular": require("../../assets/fonts/Poppins-Regular.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <Container>
       <ContainerNewPost>
-        <ScrollView style={{ height: '100%' }}>
+        <ScrollView style={{ height: "100%" }}>
           <NewPostTitleContainer>
-            <NewPostTitle>Novo post</NewPostTitle>
+            <NewPostTitle style={{ fontFamily: "Poppins-Regular" }}>Novo post</NewPostTitle>
           </NewPostTitleContainer>
-          <TitleLabel>Título</TitleLabel>
-          
+          <TitleLabel style={{ fontFamily: "Poppins-Regular" }}>Título</TitleLabel>
+
           <InputTitleField onChangeText={handleChangeTitle} />
-          <DescriptionLabel>Descrição</DescriptionLabel>
+          <DescriptionLabel style={{ fontFamily: "Poppins-Regular" }}>Descrição</DescriptionLabel>
           {/* <ErrorFieldContainer>
             <ErrorField>{errorText}</ErrorField>
           </ErrorFieldContainer> */}
@@ -47,19 +57,21 @@ const NewPost = ({
             numberOfLines={4}
             onChangeText={handleChangeText}
           />
-          <ErrorFieldContainer>
-            <ErrorField>{errorTitle}</ErrorField>
-          </ErrorFieldContainer>
         </ScrollView>
       </ContainerNewPost>
       <ButtonContainer>
         <ButtonCancelField onPress={handleCancel}>
-          <ButtonText>Cancelar</ButtonText>
+          <ButtonText style={{ fontFamily: "Poppins-Regular" }}>Cancelar</ButtonText>
         </ButtonCancelField>
         <ButtonAddField onPress={handleSubmit}>
-          <ButtonText>Adicionar</ButtonText>
+          <ButtonText style={{ fontFamily: "Poppins-Regular" }}>Adicionar</ButtonText>
         </ButtonAddField>
       </ButtonContainer>
+      {errorTitle ? (
+        <ErrorFieldContainer>
+          <ErrorField style={{ fontFamily: "Poppins-Regular" }}>{errorTitle}</ErrorField>
+        </ErrorFieldContainer>
+      ) : null}
     </Container>
   );
 };

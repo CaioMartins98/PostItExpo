@@ -66,7 +66,7 @@ const Posts = ({ postData }) => {
               <PostDate>{postData.datePost}</PostDate>
             </ContainerPostDate>
             <ContainerPostUser>
-              <PostUser>{postData.namePost}</PostUser>
+              <PostUser>{postData.namePost.split(' ', 1)}</PostUser>
               <AntDesign name="user" size={24} color="#fff" />
             </ContainerPostUser>
           </InformationContainer>

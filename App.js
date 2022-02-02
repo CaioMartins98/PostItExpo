@@ -9,7 +9,7 @@ export default function App() {
   return (
     <PaperProvider>
       <Provider store={store}>
-        <StatusBar barStyle="light-content" backgroundColor="#222" />
+        <StatusBar barStyle="light-content" backgroundColor="#222" style="light" />
         <Routes />
       </Provider>
     </PaperProvider>

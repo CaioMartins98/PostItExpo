@@ -16,7 +16,7 @@ export const ContainerNewPost = styled.View`
   justify-content: flex-start;
   border: 2px solid #5227c7;
   border-radius: 4px;
-  background: #444;
+  background: #333;
   height: 490px;
   width: 380px;
   border-radius: 8px;
@@ -43,7 +43,7 @@ export const TitleLabel = styled.Text`
 `;
 
 export const InputTitleField = styled(TextInput)`
-  background: #6666;
+  background: #444;
   height: 47px;
   width: 350px;
   color: #fff;
@@ -63,7 +63,7 @@ export const DescriptionLabel = styled.Text`
 `;
 
 export const InputDescriptionField = styled(TextInput)`
-  background: #6666;
+  background: #444;
   height: 190px;
   width: 350px;
   color: #fff;
@@ -115,9 +115,13 @@ export const ErrorFieldContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+ top: 90px;
+ background: #000;
+ width: 95%;
+ height: 50px;
 `;
 export const ErrorField = styled.Text`
-  color: red;
+  color:#fff;
   font-size: 12px;
   /* font-family: 'Poppins-Regular'; */
   padding: 12px;

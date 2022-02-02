@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Button, View, ActivityIndicator } from "react-native";
 import LottieView from "lottie-react-native";
 import { AnimationContainer, Container, DevBy, DevByContainer } from "./styles";
-import AnimationPreload from "../../assets/PostAnimation.json";
+import AnimationPreload from "../../assets/PostItAnimation.gif";
 import { useNavigation } from "@react-navigation/native";
-import { Text } from "react-native";
+import { Image } from "react-native";
 import AppLoading from "expo-app-loading";
 
 import * as Font from "expo-font";
@@ -16,7 +16,7 @@ const Preload = () => {
       navigation.navigate("Login");
     }, 5000);
   }, []);
-  
+
   const [loaded] = Font.useFonts({
     "Poppins-Regular": require("../../assets/fonts/Poppins-Regular.ttf"),
   });
@@ -28,12 +28,7 @@ const Preload = () => {
   return (
     <Container>
       <AnimationContainer>
-        <LottieView
-          source={AnimationPreload}
-          resizeMode="contain"
-          autoPlay={true}
-          loop
-        />
+        <Image style={{width: 350, height: 300}} source={AnimationPreload} />
       </AnimationContainer>
 
       <ActivityIndicator color="#F5F5F5" size="small" />

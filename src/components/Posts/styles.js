@@ -127,7 +127,7 @@ export const ContainerPostUser = styled.View`
 `;
 
 export const PostUser = styled.Text`
-  margin-top: auto;
+  margin-top: 5px;
   /* text-align: center; */
   color: #f3f9ff;
   font-size: 17px;

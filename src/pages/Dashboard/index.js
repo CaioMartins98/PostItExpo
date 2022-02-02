@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, ScrollView } from "react-native";
 import EmptyPost from "../../components/EmptyPost";
 import { ButtonContainer, ButtonField, Container } from "./styles";
-// import NewPostIcon from "../../assets/NewPost.png";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import Posts from "../../components/Posts";
@@ -10,10 +9,7 @@ import NewPost from "../../components/NewPost";
 import dateCurrentFormat from "../../utils/dateCurrentFormat";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, addText, addTitle } from "../../redux/userSlice";
-// import { AsyncStorageLib as AsyncStorage } from '@react-native-async-storage/async-storage';
 
-// import { Animated } from 'react-native';
-// import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
 
 const Dashboard = () => {
   const { text, title, name, posts } = useSelector((state) => state.user);
@@ -80,12 +76,6 @@ const Dashboard = () => {
     if (title === '' || text === '') {
       setMessageTitle('Todos os campos devem ser preenchidos');
        verify = false;
-    // } else if (title === '') {
-    //   setMessageTitle('Campo de título obrigatório*');
-    //   verify = false;
-    // } else if (text === '') {
-    //   setMessageText('Campo de texto obrigatório*');
-    //   verify = false;
     }
     return verify;
   };

@@ -14,16 +14,17 @@ import {
 } from "./styles";
 import { useDispatch } from "react-redux";
 import { changeUser } from "../../redux/userSlice";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import { Snackbar } from "react-native-paper";
 import * as Font from "expo-font";
 const Login = () => {
- 
-  const [inputValue, setInputValue] = useState("");
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [error, setError] = useState({
     isVisible: false,
     message: "",
   });
+  const [inputValue, setInputValue] = useState("");
 
   const [loaded] = Font.useFonts({
     "Poppins-SemiBold": require("../../assets/fonts/Poppins-SemiBold.ttf"),
@@ -33,9 +34,6 @@ const Login = () => {
   if (!loaded) {
     return null;
   }
-  
-  const dispatch = useDispatch();
-  const navigation = useNavigation();
 
   const handleChange = (event) => {
     setInputValue(event);
@@ -52,12 +50,12 @@ const Login = () => {
     const name = inputValue;
 
     if (name === "") {
-      setError({ isVisible: true, message: "Campo de usuário obrigatório!" });
+      setError({ isVisible: true, message: "Campo de usuário obrigatório" });
     } else {
       navigation.navigate("Dashboard");
     }
   };
-  
+
   return (
     <Container>
       <ContainerWelcome>
@@ -66,16 +64,22 @@ const Login = () => {
           Insira seu nome para entrar na plataforma !
         </Description>
       </ContainerWelcome>
-      <ContainerLogin>
-        <LabelInput style={{ fontFamily: "Poppins-Regular" }}>Nome</LabelInput>
-        <InputField onChangeText={handleChange} />
+      <ScrollView>
+        <ContainerLogin>
+          <LabelInput style={{ fontFamily: "Poppins-Regular" }}>
+            Nome
+          </LabelInput>
+          <InputField onChangeText={handleChange} />
 
-        <ButtonLogin onPress={() => handleSubmit()}>
-          <ButtonText style={{ fontFamily: "Poppins-Regular" }}>
-            Entrar
-          </ButtonText>
-        </ButtonLogin>
-      </ContainerLogin>
+          <ButtonLogin onPress={() => handleSubmit()}>
+            <ButtonText
+              style={{ fontFamily: "Poppins-Regular", fontWeight: "bold" }}
+            >
+              Entrar
+            </ButtonText>
+          </ButtonLogin>
+        </ContainerLogin>
+      </ScrollView>
       {/* <ErrorFieldContainer> */}
       <Snackbar
         visible={error.isVisible}
@@ -88,6 +92,7 @@ const Login = () => {
       >
         {error.message}
       </Snackbar>
+
       {/* </ErrorFieldContainer> */}
     </Container>
   );

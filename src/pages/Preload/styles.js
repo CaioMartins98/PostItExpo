@@ -7,8 +7,11 @@ export const Container = styled.View`
 `;
 
 export const AnimationContainer = styled.View`
-  height: 350px;
-  width: 380px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  /* flex: 1; */
+  align-items: center;
+  justify-content: center;
 `;
 export const DevByContainer = styled.View`
   bottom: 25px;

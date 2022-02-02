@@ -1,7 +1,7 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
 import { AnimationContainer, Container, Description } from './styles';
-import EmptyAnimation from '../../assets/EmptyAnimation.json';
+import EmptyAnimation from '../../assets/PostEmpty.json';
 import * as Font from "expo-font";
 
 const EmptyPost = () => {
@@ -18,11 +18,11 @@ const EmptyPost = () => {
     <Container>
       <AnimationContainer>
         <LottieView
-          source={EmptyAnimation}
+          source={require('../../assets/PostEmpty.json')}
           autoPlay
           resizeMode="cover"
           loop
-            style={{}}
+            
         />
       </AnimationContainer>
       <Description style={{ fontFamily: "Poppins-Regular" }}>

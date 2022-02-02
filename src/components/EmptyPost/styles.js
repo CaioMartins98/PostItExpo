@@ -11,6 +11,9 @@ export const Container = styled.View`
 export const AnimationContainer = styled.View`
   height: 200px;
   width: 360px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 80px;
 `;
 

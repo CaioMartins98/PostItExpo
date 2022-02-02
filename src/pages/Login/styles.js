@@ -5,6 +5,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+
 `;
 
 export const ContainerWelcome = styled.View`
@@ -12,6 +13,8 @@ export const ContainerWelcome = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+ 
+  margin-top: 140px;
 `;
 
 export const Welcome = styled.Text`
@@ -53,7 +56,7 @@ export const InputField = styled(TextInput)`
 export const ButtonLogin = styled.TouchableOpacity`
   border-radius: 8px;
   background-color: #5227c7;
-margin-top: 90px;
+margin-top: 60px;
   justify-content: center;
   align-items: center;
   padding: 10px;
